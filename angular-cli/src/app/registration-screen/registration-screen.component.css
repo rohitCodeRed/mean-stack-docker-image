@@ -1,0 +1,27 @@
+.col-centered{
+    float: none;
+    margin: 50px auto;
+}
+
+h2{
+    /* margin-bottom: 20px;
+    margin-left: 0px; */
+    font-family: sans-serif;
+
+
+    /* position: relative;
+    display: inline-block; */
+}
+
+img{
+  /* float: none;
+  margin: 0 auto; */
+}
+
+/* .logo{
+  display: inline-block;
+} */
+.container{
+  margin-left: 20%;
+  margin-bottom: 20px;
+}

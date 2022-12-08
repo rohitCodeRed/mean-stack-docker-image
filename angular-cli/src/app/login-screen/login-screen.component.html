@@ -1,0 +1,37 @@
+
+  <div class="col-md-6 col-sm-6 col-12 col-centered">
+    <div class="jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-1 col-sm-1 col-2 ">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAASqSURBVFhH3ZdtTFtVGMfrovODr4mJMXEfTFwy3XjRLPpBM/rKMqeXMZVIgoQ4EYXMOZ0rBWOqkhWX+LZlDmhvewtug2GmGB1hY6NR4N4ir2NV3qEhkTLYZikttBR6PE9zlizZ2XLpvaWJv+SftPee8/yfe+45zz1HEQ/KmdQ3TRkpw+Tv2vMUq5/bwhXPpHIlv25iD+Yojca7yS1FeWbyVhOTeu0Qk5RCLq09KXbDpEGoQfv/sKJttZ/PJ9mKhzaa9RvgnolJceDR2xdtmCieqS49reftqM59AdW6m1GRo2o5mTP89UXms0+bMlKvG7M2rydNE8MmywFGVV/mhQRvSHW6bK4wX3u8nEk5QZolEKNxHYxYkcO8fCNBGNHCwh1D5UxyKWmVWGDOJXGGQVVdmbdEqIl82VeP8t9/eR4vkL2kSeKB1fscuz+n1JrT32Bnwq2sBrWz6iVndbqLtyj3Nh7ZcS9pmhj4yrRkp0074Wp4w+8dNKHwdGVU/w4cQq6fswNwr9Ws3kKary2QHG/TeD1dJRF0nUM0eboMEd6qmYO2pNva4Pzh+Qd5m3YaJ7BCS+xmebpLIoJN62ljX3iAdI8/AqepHmjMXaAlRNPA2dwgnpc20j2+4Mm/Eb+24NLUcWoyNC15KpCA+7RVqp8kYeIHNrKOtbwboiVyJ41ffC8scLoqEiY+dFVtvUewaXwB97fUJO4k6AN9IQYJJz9tbJq688RL87QExKjr5M553qJ6kYSTnzZWVTpyPj9IMxej0QsFId6iLiHh5CX6ejltx5XeUqq5GM30fYogBjIq1pGw8tBRrX3Eyeku9Z95fRFWJM1cjHDdRH0/7v6HhJUHB6d82Mlp3cPn9oQjV1mqsVjhB0TjLYV6Elo68Cqcdp1z5PzbYZrhatVRvR15hA+eIOGlI1hV+7prmeDKrIVquFrhzQMabT/wKAkvjXM16fdB3fJPfEM1i0XwisccRR8SC2m0WrbluRqyAzSjWDX1px5dPpM1TSyk0WHf3gxlgWYUq1ZmraivPhMNNuU1E5vYwfVqdnHyKNVIikJT30OpiY7kWEvBRxOOjx/rw9OJ2IoHf5LCKxLLyu0E5WqqsxjPySyE6ysCL2IrHp5VLy5fMd8S3PVL9i3XpAiOCOBFbMWDN5jugIwr+Hbyj3+FnPZ0N7EVDx76xpneT6hBQXKN5HS3AXXY038jtuJptaS9eumn17w3B5P79YJ663f72syqXcRWPK76zevx1t4bmPiaGlgO+UYPI3wynAMvYrs68CE8t6duly9yzUY1kCKoiZ0ndwZ4VpVD7GIDz8XfR5vfwSc4+ZKEBx44mxfEx9EWYhM7cJ7F263+sYsFQTlGEmrgUNNbQcGu64XvPbGRRleV7iH8tAKe0H4pXxc4OOEpE4BYEJOElwfYG+LdTTFvVQdHmvNDC5NHqEnQBIkNN+0JQV9clA8ipLiLhJUfp1m5AY/AMZ7VLPbUZfjHHUWRq5c/Q76Rw2hh8ruo4Ddcw7vnSM8pBi8EzaJg0x3lKzSPkzDxx3FMeT+ulYxg1Vbinc/feDHN4BUZAsFvuIYfpKLdrHwF2pJu/zcUiv8AlgDNaU9ug+EAAAAASUVORK5CYII="
+            >
+          </div>
+          <div class="col-md-10 col-sm-10 col-10 ">
+            <h2>Angular chart</h2>
+          </div>
+      </div>
+  
+  
+    </div>
+  
+      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+              <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+              <button [disabled]="loading" class="btn btn-primary">Login</button>
+              <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+          </div>
+      </form>
+    </div>
+    </div>
+  
