@@ -1,6 +1,6 @@
 //var mongoose = require('mongoose');
 //var Q = require('q');
-const Promise = require('promise');
+//const Promise = require('promise');
 const users = require('../model/user_info.model');
 const service_user = {};
 const acess_token = require('./acess_token.service');

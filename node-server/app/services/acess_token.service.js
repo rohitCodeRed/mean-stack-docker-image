@@ -6,7 +6,7 @@ const service_acess_token = {};
 const mongoose = require('mongoose');
 //const mongoose = require('mongoose').Schema.ObjectId;
 
-const Promise = require('promise');
+//const Promise = require('promise');
 
 service_acess_token.getHashToken = getHashToken;
 service_acess_token.verifyToken = verifyJwtToken;

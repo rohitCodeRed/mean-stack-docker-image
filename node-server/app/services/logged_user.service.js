@@ -1,6 +1,6 @@
 const users = require('../model/user_info.model');
-const Promise = require('promise');
-const loggedOutPromise = require('promise');
+//const Promise = require('promise');
+//const loggedOutPromise = require('promise');
 
 const logged_user = {};
 const acess_token = require('./acess_token.service');

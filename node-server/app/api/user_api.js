@@ -1,40 +1,53 @@
 const express = require('express');
-//const request = require('request');
-//var rp = require('request-promise');
+const router = express.Router();
+const stringify = require('json-stringify');
+const logged_user = require('../services/logged_user.service');
+const service_auth_user = require('../services/auth_user.service');
 const async = require('asyncawait/async');
 const await = require('asyncawait/await');
-const stringify = require('json-stringify');
-const router = express.Router();
-const service_user =  require('../services/user_info.service');     // get an instance of the express Router
-const service_auth_user = require('../services/auth_user.service');
-
 
 // middleware to authenticate the loggedIn User..
 
 var middleware = async (function (req,res,next) {
   try{
+    //console.log(stringify(req.headers));
     let  userId = await (service_auth_user.authBytoken(req.headers['authorization']));
     //console.log(stringify(req.path));
     req.data = {"authUserId":userId};
     next();
   }
   catch(e){
-    res.status(400).send(e.message);
-    //next();
+    res.sendStatus(401);
   }
 
    //return data;
 });
 
 
-router.get('/list',middleware,function(req, res) {
+router.post('/loggedIn',function(req, res) {
 
-  service_user.getListUser(req.data.authUserId).then(function(result){
+  logged_user.loggedIn(req.body['username'],req.body['password']).then(function(result){
       if(result){
         console.log(result);
         res.send(result);
       }else{
-        res.status(400).send("Unable to list user");
+        res.status(400).send("Unable to loggedIn user");
+      }
+    }).catch(function(err){
+      console.log("Login on server",err);
+      res.status(400).send(err.message);
+    });
+
+});
+
+router.get('/loggedOut',middleware,function(req, res) {
+
+  logged_user.loggedOut(req.data.authUserId).then(function(result){
+      if(result){
+        console.log(result);
+        res.send(result);
+      }else{
+        res.status(400).send("Unable to loggedOut user");
       }
     }).catch(function(err){
       res.status(400).send(err.message);
@@ -42,76 +55,21 @@ router.get('/list',middleware,function(req, res) {
 
 });
 
-router.get('/find/:id',middleware,function(req, res) {
+router.post('/register',function(req, res) {
 
-  service_user.getInfoById(req.data.authUserId,req.params.id).then(function(result){
+  logged_user.resgister(req.body).then(function(result){
       if(result){
         console.log(result);
         res.send(result);
       }else{
-        res.status(400).send("Unable to find user");
+        res.status(400).send("Unable to register user");
       }
     }).catch(function(err){
+      console.log("Register on server",err);
       res.status(400).send(err.message);
     });
 
+ //res.send(stringify(req));
 });
-
-router.post('/create',middleware,function(req,res){
-
-  console.log(req.body);
-  service_user.createUser(req.data.authUserId,req.body).then(function(result){
-      if(result){
-        console.log(result);
-        res.send(result);
-      }else{
-        res.status(400).send("Unable to create user");
-      }
-    }).catch(function(err){
-      res.status(400).send(err.message);
-    });
-});
-
-
-router.put('/update/:id',middleware,function(req,res){
-  delete req.body["username"];
-  delete req.body["_id"];
-  service_user.updateUser(req.data.authUserId,req.params.id,req.body).then(function(result){
-      if(result){
-        console.log(result);
-        res.send(result);
-      }else{
-        res.status(400).send("Unable to update user");
-      }
-    }).catch(function(err){
-      res.status(400).send(err.message);
-    });
-});
-
-router.delete('/delete/:id',middleware,function(req,res){
-  service_user.deleteUser(req.data.authUserId,req.params.id).then(function(result){
-      if(result){
-        console.log(result);
-        res.send(result);
-      }else{
-        res.status(400).send("Unable to delete user");
-      }
-    }).catch(function(err){
-      res.status(400).send(err.message);
-    });
-});
-/*router.get('/user/:custId/plan', function(req, res) {
-//console.log("name: "+req.params.name);
-  service_user.getInfo(req.params.custId).then(function(data){
-    if(data){
-      res.send(data);
-    }else{
-      res.status(400).send("Unable to find data");
-    }
-  }).catch(function(err){
-    res.sendStatus(400);
-  });
-
-});*/
 
 module.exports = router;

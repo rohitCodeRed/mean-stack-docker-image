@@ -1,6 +1,6 @@
 const users = require('../model/user_info.model');
 const acess_token = require('./acess_token.service');
-const Promise = require('promise');
+//const Promise = require('promise');
 const service_auth_user = {};
 
 service_auth_user.authBytoken = authBytoken;
