@@ -1,0 +1,7 @@
+docker build -t node_server_image .
+docker pull mongo
+docker exec -it node_server_container bash
+docker run --rm --name node_server_container -p 3001:3001 node_server_image
+
+docker run --rm --name mongo_container -v mongoData:/data/db mongo
+docker run --rm --name node_server_container -p 3001:4000 --link=mongo_container:MONGO_DB node_server_image

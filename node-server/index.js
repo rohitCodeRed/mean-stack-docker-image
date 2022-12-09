@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const si = require('systeminformation');
 const config = require('./config.js');
 const {createHtml} = require('./create_html');
-const port = process.env.PORT || 3001;
+const port = 4000;
 
 
 app.use(express.json());
