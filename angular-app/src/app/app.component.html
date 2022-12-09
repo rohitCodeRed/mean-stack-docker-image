@@ -6,11 +6,11 @@
     <span>
       <div class="toggle-icon">
         <button type="button" mat-button (click)="drawer.toggle()">
-          <mat-icon svgIcon="menu"></mat-icon>
+          <mat-icon fontIcon="menu"></mat-icon>
         </button>
       </div>
     </span>
-    <a routerLink="/overview"><mat-icon svgIcon="home"></mat-icon></a>
+    <a routerLink="/overview"><mat-icon fontIcon="home"></mat-icon></a>
     <span>Awesome Chart</span>
     <span class="example-fill-remaining-space"></span>
     <button mat-button class="profileOption" [matMenuTriggerFor]="menu">
@@ -35,81 +35,31 @@
   <mat-drawer-container class="example-container">
     <mat-drawer  #drawer class="example-sidenav" mode="over" >
 
-      <!-- <mat-toolbar class="sidenav_tool">
-        <span class="tIcon"><mat-icon svgIcon="multi_chart"></mat-icon></span>
-        <span>Chart Types</span>
-      </mat-toolbar> -->
-
       <mat-accordion class="side_expansion">
         <mat-expansion-panel >
             <mat-expansion-panel-header>
               Line Chart
             </mat-expansion-panel-header>
             <mat-nav-list class="chartList">
-               <a mat-list-item routerLink="/simpleLine" routerLinkActive="active-link">Simple Line chart</a>
-               <a mat-list-item routerLink="/dynamicLine" routerLinkActive="active-link">Dynamic Chart</a>
-               <a mat-list-item routerLink="/invertedLine" routerLinkActive="active-link">Inverted Axis Chart</a>
-               <a mat-list-item routerLink="/irRegulatTimeLine" routerLinkActive="active-link">IRregular Time Chart</a>
-               <a mat-list-item routerLink="/timeSeriesLine" routerLinkActive="active-link">Time Series Chart</a>
+              <a mat-list-item routerLink="/" routerLinkActive="active-link">Dynamic Chart</a>
             </mat-nav-list>
         </mat-expansion-panel>
 
-        <mat-expansion-panel >
+        <!-- <mat-expansion-panel >
             <mat-expansion-panel-header>
-              Area Chart
+              Gauge Chart
             </mat-expansion-panel-header>
             <mat-nav-list class="chartList">
-               <a mat-list-item routerLink="/simpleArea" routerLinkActive="active-link">Simple Area</a>
-               <a mat-list-item routerLink="/negativeArea" routerLinkActive="active-link">Negative Area</a>
-               <a mat-list-item routerLink="/invertedArea" routerLinkActive="active-link">Inverted Area</a>
-               <a mat-list-item routerLink="/splineArea" routerLinkActive="active-link">Spline Area</a>
-               <a mat-list-item routerLink="/rangeLineArea" routerLinkActive="active-link">Range Line Area</a>
-            </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel >
-          <mat-expansion-panel-header>
-            Pie Chart
-          </mat-expansion-panel-header>
-          <mat-nav-list class="chartList">
-              <a mat-list-item routerLink="/pieLegendChart" routerLinkActive="active-link">Pie Legend Chart</a>
-             <a mat-list-item routerLink="/semiPieChart" routerLinkActive="active-link">Semi Pie Chart</a>
-             <a mat-list-item routerLink="/pieDrillChart" routerLinkActive="active-link">Pie Downdrill Chart</a>
-             <a mat-list-item routerLink="/pieGradientChart" routerLinkActive="active-link">Pie Gradient Chart</a>
-          </mat-nav-list>
-        </mat-expansion-panel>
-
-        <mat-expansion-panel >
-            <mat-expansion-panel-header>
-              Column & Bar Charts
-            </mat-expansion-panel-header>
-            <mat-nav-list class="chartList">
-               <a mat-list-item routerLink="/simpleBar" routerLinkActive="active-link">Simple Bar</a>
-               <a mat-list-item routerLink="/negativeBar" routerLinkActive="active-link">Negative Stack Bar</a>
-               <a mat-list-item routerLink="/simpleColumn" routerLinkActive="active-link">Simple Column</a>
-               <a mat-list-item routerLink="/RotatedColumn" routerLinkActive="active-link">Rotated Label Column</a>
-               <a mat-list-item routerLink="/drillDownColumn" routerLinkActive="active-link">Drill Down Column</a>
-               <a mat-list-item routerLink="/rangeColumn" routerLinkActive="active-link">Range Column</a>
-            </mat-nav-list>
-          </mat-expansion-panel>
-
-        <mat-expansion-panel >
-            <mat-expansion-panel-header>
-              Gauges
-            </mat-expansion-panel-header>
-            <mat-nav-list class="chartList">
-               <a mat-list-item routerLink="/solidGauge" routerLinkActive="active-link">Solid Gauge</a>
-               <a mat-list-item routerLink="/solidArcGauge" routerLinkActive="active-link">Solid Arc Gauge</a>
-               <a mat-list-item routerLink="/activityGauge" routerLinkActive="active-link">Activity Gauge</a>
+               <a mat-list-item routerLink="/gauge" routerLinkActive="active-link">Solid Gauge</a>
             </mat-nav-list>
 
-        </mat-expansion-panel>
+        </mat-expansion-panel> -->
       </mat-accordion>
 
     </mat-drawer>
 
     <div class="chart-content">
-        <app-alert-screen></app-alert-screen>
+        <app-alert></app-alert>
         <router-outlet></router-outlet>
     </div>
   </mat-drawer-container>

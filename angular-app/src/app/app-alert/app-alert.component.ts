@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../alert.service';
 
 @Component({
-  selector: 'app-app-alert',
+  selector: 'app-alert',
   templateUrl: './app-alert.component.html',
   styleUrls: ['./app-alert.component.css']
 })
@@ -12,6 +12,8 @@ export class AppAlertComponent implements OnInit{
     constructor(private alertService: AlertService) { }
 
     ngOnInit() {
-        this.alertService.getMessage().subscribe(message => { this.message = message; });
+        this.alertService.getMessage().subscribe(message => { 
+          this.message = message;
+        });
     }
 }

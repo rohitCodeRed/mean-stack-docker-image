@@ -62,10 +62,19 @@ export class AppComponent {
 
       logedOut(){
         this.authenticationService.logout().subscribe(
-            data => {
+          {
+            next: (data) => {
+              localStorage.removeItem('currentUser');
+              this.router.navigate(['login']);
+            },
+            error: (error) => {
+                //console.log("On Login",error);
                 localStorage.removeItem('currentUser');
                 this.router.navigate(['login']);
-            });
+            },
+            complete: () => console.info('complete') 
+        });
+            
       }
 
 }

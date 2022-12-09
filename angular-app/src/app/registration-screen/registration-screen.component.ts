@@ -22,12 +22,20 @@ export class RegistrationScreenComponent {
     register() {
         this.loading = true;
         this.registerService.register(this.model)
-            .subscribe(
-                data => {
-                    // set success message and pass true paramater to persist the message after redirecting to the login page
+        .subscribe(
+              {
+                  next: (data) => {
                     this.alertService.success('Registration successful', true);
                     this.loading = false;
                     this.router.navigate(['login']);
-                });
+                  },
+                  error: (error) => {
+                      //console.log("On Registration",error);
+                      this.alertService.error(error.message);
+                      this.loading = false;
+                  },
+                  complete: () => console.info('complete') 
+              }
+          );
     }
 }

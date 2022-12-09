@@ -25,6 +25,8 @@ import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { RegistrationScreenComponent } from './registration-screen/registration-screen.component';
 import { MainViewComponent } from './main-view/main-view.component';
 
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,8 @@ import { MainViewComponent } from './main-view/main-view.component';
     MatInputModule,
     MatMenuModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,16 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainViewComponent implements OnInit{
 
-  chartIcons = [
-    { parentName:"Line Chart",childName:[
-                              {name:"Dynamic Chart",link:"dynamicLine",imgSrc:"dynamic-update.png"},
-                              ]
-                          },
-    
-     { parentName:"Gauges",childName:[
-                                {name:"Solid Gauge",link:"solidGauge",imgSrc:"gauge-solid.png"},
-                               ]
-                            }
+  public chartIcons = [
+    { parentName:"Line Chart",name:"Dynamic Chart",link:"linechart",imgSrc:"dynamic-update.png"},
+     { parentName:"Gauge Chart",name:"Solid Gauge",link:"gauge",imgSrc:"gauge-solid.png"}
 ];
 constructor() { }
 

@@ -56,8 +56,9 @@
 }
 
 .image-container {
-    height: 250px;
-    max-height: 250px;
+    height: 200px;
+    
+    max-height: 200px;
     padding: 0;
     background-color: #fff;
     /* font: 0/0 a; */

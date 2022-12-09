@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'login', component: LoginScreenComponent },
   { path: 'register', component: RegistrationScreenComponent },
   { path: 'overview', component: MainViewComponent ,canActivate: [AuthGuard] },
-  { path: '', redirectTo: 'overview', pathMatch: 'full'}
+  { path: '', redirectTo: 'overview', pathMatch: 'full'},
+  // { path: 'linechart', component: LineChartComponent,canActivate: [AuthGuard]  },
+  // // { path: 'gauge', component: GaugeChartComponent,canActivate: [AuthGuard]  },
 ];
 
 @NgModule({

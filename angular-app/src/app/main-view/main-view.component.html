@@ -1,33 +1,37 @@
 <div class="overView">
-    <div class="jumbotron">
+    <div class="mt-3 p-3 rounded">
       <h1>Charts in Angular</h1>
       <p>Angular is the most popular for developing interactive front End websites, here are the some examples charts developed in Angular.</p>
     </div>
   
     <div class="container">
-      <!-- Content here -->
-      <div clas="row" *ngFor="let chart of chartIcons">
-        <div class="col-md-12 col-sm-12 col-12 title" >
-                  <h2>{{chart.parentName}}</h2>
+      <div class="row">
+        <div class="col-6"> 
+          <h2>{{chartIcons[0]["parentName"]}}</h2>
+          <app-line-chart ></app-line-chart>
+          <!-- <a routerLink="/{{chartIcons[0]['link']}}">
+            <div class="demo-container">
+                <div class="image-container">
+                    <img  src="/assets/{{chartIcons[0]['imgSrc']}}"/>
+                </div>
+               <div class="clearfix"></div>
+            </div>
+        </a> -->
+        
         </div>
-        <div class="row">
-        <div class="col-md-4 col-sm-6 col-6 demo" *ngFor="let innerChart of chart.childName">
-                      <a routerLink="/{{innerChart.link}}">
-                              <div class="demo-container">
-                                  <div class="col-md-12 col-sm-12 col-12 image-container">
-                                      <img  src="/assets/{{innerChart.imgSrc}}"/>
-                                  </div>
-                                  <div class="col-md-12 col-sm-12 col-12 footer-container"><h3>{{innerChart.name}}</h3></div>
-                                  <div class="clearfix"></div>
-                              </div>
-                      </a>
-              </div>
+        <div class="col-6"> 
+          <h2>{{chartIcons[1]["parentName"]}}</h2>
+          <app-gauge-chart></app-gauge-chart>
+          <!-- <a routerLink="/{{chartIcons[1]['link']}}">
+            <div class="demo-container">
+                <div class="image-container">
+                    <img  src="/assets/{{chartIcons[1]['imgSrc']}}"/>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+          </a> -->
+        </div>
       </div>
-  
-      </div>
-  
-  
-  
     </div>
   
   </div>

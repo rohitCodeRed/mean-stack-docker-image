@@ -3,18 +3,17 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../environments/environment';
-import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  loginUrl: string = environment.serverUrl + '/api/logged/loggedIn';
-    logoutUrl:string = environment.serverUrl + '/api/logged/loggedOut';
+  loginUrl: string = environment.serverUrl + '/api/user/loggedIn';
+    logoutUrl:string = environment.serverUrl + '/api/user/loggedOut';
     //_headers =
 
-    constructor(private http: HttpClient,private alertService:AlertService) { }
+    constructor(private http: HttpClient) { }
 
     login(username: string, password: string): Observable<any> {
         return this.http.post<any>(this.loginUrl, { username: username, password: password }).pipe(
@@ -57,8 +56,8 @@ export class LoginService {
           `Backend returned code ${error.status}, body was: `, error.error);
       }
 
-      this.alertService.error(error.message);
+      
       // Return an observable with a user-facing error message.
-      return throwError(() => new Error('Something bad happened; please try again later.'));
+      return throwError(() => new Error(`Status code ${error.status}, ${error.error}`));
     }
 }

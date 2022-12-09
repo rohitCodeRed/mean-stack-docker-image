@@ -1,0 +1,73 @@
+.example-container {
+    width: 100vw;
+     height: 90vh;
+    background-color: #fff;
+  }
+  
+  .main_toolBar{
+    background-color: #3f51b5;
+    color:#fff;
+  }
+  .example-sidenav-content {
+    background-color:#fff;
+  
+  }
+  .sidenav_tool{
+    margin-bottom: 2px;
+    background-color: #acd82b;
+    color:#fff;
+  }
+  .toogle-icon{
+    display: flex;
+    float:left;
+    width:auto;
+  }
+  .chart-content{
+    display:block;
+    height:auto;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    /* padding-left: 1px;
+    padding-right: 1px; */
+      width:auto;
+  
+  }
+  .side_expansion{
+    /* padding */
+  }
+  
+  .tIcon{
+    padding:5px;
+  }
+  
+  .chartList a{
+    font-size: 14px;
+  }
+  .mainlayout{
+    height:100%;
+  }
+  
+  .main_toolBar a{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .profileOption{
+    /* float:right; */
+    /* margin-left:87vw;
+    position: absolute; */
+    /* margin-right:20px; */
+  }
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox.
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  .img_prof{
+    padding-right: 5px;
+  }
+  

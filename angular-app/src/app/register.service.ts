@@ -4,23 +4,16 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 //import 'rxjs/add/operator/map';
 import { environment } from '../environments/environment';
 import { catchError, throwError } from 'rxjs';
-import { AlertService } from './alert.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  registerUrl: string = environment.serverUrl + '/api/logged/register';
-  constructor(private http: HttpClient,private alertService:AlertService) { }
+  registerUrl: string = environment.serverUrl + '/api/user/register';
+  constructor(private http: HttpClient) { }
 
   register(data: any) {
-    // ,
-    //             error => {
-    //                 console.log("On Register",error);
-    //                 this.alertService.error(error.error);
-    //                 this.loading = false;
-    //             }
       return this.http.post<any>(this.registerUrl, data).pipe(
         catchError(this.handleError)
       );
@@ -36,10 +29,7 @@ export class RegisterService {
       console.error(
         `Backend returned code ${error.status}, body was: `, error.error);
     }
-    this.alertService.error(error.message);
-
-    this.alertService.error(error.message);
     // Return an observable with a user-facing error message.
-    return throwError(() => new Error('Something bad happened; please try again later.'));
+    return throwError(() => new Error(`Status code ${error.status}, ${error.error}`));
   }
 }

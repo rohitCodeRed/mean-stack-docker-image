@@ -3,16 +3,15 @@
     margin: 50px auto;
 }
 
-h2{
-    /* margin-bottom: 20px;
-    margin-left: 0px; */
-    font-family: sans-serif;
-
-
-    /* position: relative;
-    display: inline-block; */
+h1{
+    
+    color: black;
+    font-size: 28px;
 }
 
+.help-block{
+  color:red;
+}
 img{
   /* float: none;
   margin: 0 auto; */
