@@ -1,27 +1,27 @@
 const express = require('express');
 const router = express.Router();
-const stringify = require('json-stringify');
+
 const logged_user = require('../services/logged_user.service');
 const service_auth_user = require('../services/auth_user.service');
-const async = require('asyncawait/async');
-const await = require('asyncawait/await');
+const async = require('async');
+//const await = require('await');
 
 // middleware to authenticate the loggedIn User..
 
-var middleware = async (function (req,res,next) {
-  try{
+var middleware = async (req, res, next) => {
+  try {
     //console.log(stringify(req.headers));
-    let  userId = await (service_auth_user.authBytoken(req.headers['authorization']));
+    let userId = await (service_auth_user.authBytoken(req.headers['authorization']));
     //console.log(stringify(req.path));
-    req.data = {"authUserId":userId};
+    req.data = { "authUserId": userId };
     next();
   }
-  catch(e){
+  catch (e) {
     res.sendStatus(401);
   }
 
-   //return data;
-});
+  //return data;
+};
 
 
 router.post('/loggedIn',function(req, res) {

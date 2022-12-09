@@ -32,7 +32,7 @@ app.use('/', function(req, res) {
   si.getStaticData()
       .then(function(data){
         //console.log(" info: ",data);
-        res.send(createHtml());
+        res.send(createHtml(data));
       })
       .catch(function(error){
         console.error(error)
@@ -45,27 +45,28 @@ app.listen(port, function(){
   console.log('Example app listening on port: '+port);
 });
 
-//Connecting to mongoDB
-mongoose.connect(config.mongoDB_url,{
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-  useCreateIndex: true
-});
-//adding promise library to mongoose object..
-//mongoose.Promise = global.Promise;
-let db = mongoose.connection;
-//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-//monitering connection of MongoDB
-db.then(function(result){
-  console.log("\n**-----------MongoDB connection established------------**\n DB:",result.name,"\n Host:",result.host,"\n Port:",result.port);
-  console.log("Timer closed.");
-//clearInterval(timerId);
-},function(error){
-  console.log("Mongo DB connection error: ",JSON.stringify(error.message));
-  //console.log("\n\n-----Trying reconnecting... after 2 sec----");
-})
+
+
+
+
+///-----------DATA Base connection-------------------//
+mongoose.set('strictQuery', true);
+ setTimeout(function() {
+  
+  mongoose.connect(config.mongoDB_url).catch(error => {
+    console.log("Mongo DB connection error: ",JSON.stringify(error.message));
+  });
+
+}, 2000);
+
+mongoose.connection.on('error', err => {
+  console.log("Mongo DB connection error: ",JSON.stringify(err.message));
+});
+
+mongoose.connection.on("connected",()=>{
+  console.log("\n**-----------MongoDB connection established------------**\n DB:",config.dbName,"\n Host:",config.dbHost,"\n Port:",config.dbPort);
+});
 
 
 

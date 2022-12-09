@@ -1,5 +1,5 @@
 
-function createHtml(){
+function createHtml(data){
     return HtmlPart().start +createView(data)+HtmlPart().end;
 }
 
@@ -94,10 +94,12 @@ function createView(data){
                             border:none;
                           }
                           .jumbotron{
-                            background-color:#d8e5f9;
+                            background-color:#008394;
+                            color:#eeeeee;
                           }
                           .panel-default > .panel-heading {
-                            background-color: #d7fcc0;
+                            background-color: #00a152;
+                            color:#eeeeee;
                           }
                   </style>
                 </head>
