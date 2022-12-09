@@ -1,0 +1,5 @@
+docker build -t angular_app_image .
+docker exec -it angular_app_container bash
+docker run --rm --name angular_app_container -p 4200:80 angular_app_image 
+
+docker run --rm --name angular_app_container -p 5000:80 angular_app_image

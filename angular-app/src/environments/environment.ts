@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    serverUrl:'http://localhost:3001',
+    serverUrl:'http://localhost:4000',
     headers:{"authorization":"bearer ","content-type":"application/json"}
   };
   
