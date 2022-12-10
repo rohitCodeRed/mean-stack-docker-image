@@ -30,7 +30,7 @@ cd ..
 ##remove folder
 rm -rf angular-app/
 
-#pull official mongo image from docker
-#docker pull mongo
+
+mkdir ./dbData
 
 
