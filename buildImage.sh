@@ -30,6 +30,6 @@ cd ..
 rm -rf angular-app/
 
 #pull official mongo image from docker
-docker pull mongo
+#docker pull mongo
 
 
