@@ -2,9 +2,7 @@
 
 # Install docker, docker-compose and Node.
 
-#clone node project..
-git clone https://github.com/rohitCodeRed/mean-stack-docker-image.git
-
+# go to node server folder.
 cd node-server
 
 ## build the image with docker file
@@ -15,6 +13,9 @@ cd ..
 ##remove folder
 rm -rf node-server/
 
+
+
+#-----------Angular build started------------
 cd angular-app
 
 npm install
