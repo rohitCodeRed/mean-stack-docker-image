@@ -5,11 +5,11 @@ Frame work or tools involves inthis project:
 * Nodejs 16.18.1
 * Mongodb latest
 
-#Prerequisites
+# Prerequisites
   Docker
   npm
   
-#Steps for running container
+# Steps for running container
   * git clone https://github.com/rohitCodeRed/mean-stack-docker-image/
   * cd mean-stack-docker-image
   * sh startContainer.sh
