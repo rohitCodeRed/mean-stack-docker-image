@@ -1,6 +1,6 @@
 # Mean stack with Docker
-This project demonstrate the running of all containers(angular, nodejs and mongodb) in one go. 
-Frame work or tools involves inthis project:
+####This project demonstrate the running of all containers(angular, nodejs and mongodb) in one go. 
+####Frame work or tools involves in this project:
 * Angular 15
 * Nodejs 16.18.1
 * Mongodb latest
